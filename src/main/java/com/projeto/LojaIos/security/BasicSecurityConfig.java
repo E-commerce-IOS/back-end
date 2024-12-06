@@ -62,6 +62,13 @@ public class BasicSecurityConfig {
 
         http
                 .authorizeHttpRequests((auth) -> auth
+                        .requestMatchers("/swagger-ui/index.html").permitAll()
+                        .requestMatchers("/v3/api-docs").permitAll()
+                        .requestMatchers("/swagger-resources/**").permitAll()
+                        .requestMatchers("/usuario/logar").permitAll()
+                        .requestMatchers("/usuario/cadastrar").permitAll()
+                        .requestMatchers("/item/").permitAll()
+                        .requestMatchers("/error/**").permitAll()
                         .requestMatchers("/usuario/logar").permitAll()
                         .requestMatchers("/usuario/cadastrar").permitAll()
                         .requestMatchers("/item/").permitAll()
