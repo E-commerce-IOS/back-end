@@ -17,6 +17,9 @@ public class Cor {
     @Column(name = "nome")
     private String nome;
 
+    @Column(name = "descricao")
+    private String descricao;
+
     @OneToMany(mappedBy = "cor", cascade = CascadeType.ALL)
     private List<Item> item;
 
@@ -24,6 +27,14 @@ public class Cor {
 
     public Cor(int idICor) {
         this.idCor = idICor;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public int getIdCor() {
