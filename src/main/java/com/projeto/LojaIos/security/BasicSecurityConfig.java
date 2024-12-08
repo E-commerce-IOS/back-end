@@ -70,6 +70,7 @@ public class BasicSecurityConfig {
                         .requestMatchers("/item/").permitAll()
                         .requestMatchers("/item/{id}").permitAll()
                         .requestMatchers("/error/**").permitAll()
+                        .requestMatchers("/**").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
                         .anyRequest().authenticated())
                 .authenticationProvider(authenticationProvider())
