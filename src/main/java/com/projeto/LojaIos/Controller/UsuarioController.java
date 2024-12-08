@@ -54,7 +54,7 @@ public class UsuarioController {
 
     }
 
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/logar")
     public ResponseEntity<UsuarioLogin> autenticarUsuario(@RequestBody Optional<UsuarioLogin> usuarioLogin){
 

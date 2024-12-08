@@ -11,6 +11,8 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @Configuration
@@ -61,6 +63,15 @@ public class SwaggerConfig {
 
         return new ApiResponse().description(message);
 
+    }
+
+    public void addCorsMappings(CorsRegistry registry) {
+        // Configura CORS para todas as rotas
+        registry.addMapping("/**") // Aplica a todas as rotas
+                .allowedOrigins("http://localhost:4200") // Frontend (Angular)
+                .allowedMethods("GET", "POST", "PUT", "DELETE") // Métodos permitidos
+                .allowedHeaders("Authorization", "Content-Type") // Permite os cabeçalhos Authorization e Content-Type
+                .allowCredentials(true); // Permite credenciais (cookies, tokens)
     }
 
 }
